@@ -1,0 +1,107 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class LinkedList {
+    public static void main(String[] args) {
+        LinkedList<Town> places = new LinkedList<>();
+
+        addPlace(places, new Town("Sydney", 0));
+        addPlace(places, new Town("Alice Springs", 2771));
+        addPlace(places, new Town("Brisbane", 917));
+        addPlace(places, new Town("Darwin", 3972));
+        addPlace(places, new Town("Melbourne", 877));
+        addPlace(places, new Town("Perth", 3923));
+
+        showPlace(places);
+
+        Scanner scanner = new Scanner(System.in);
+        var iterator = places.listIterator();
+        displayOptions();
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.contains("M")) {
+                displayOptions();
+            }
+            if (input.contains("F")) {
+                if (iterator.hasNext())
+                    System.out.println(iterator.next().getTown() + ", ");
+            } else { System.out.println("No more to display at the end"); }
+        }
+        if (input.contains("L")) {
+            showPlace(places);
+        }
+        if (input.contains("B")) {
+            if (iterator.hasPrevious()) {
+                System.out.print(iterator.previous().getTown() + ", ");
+            } { System.out.println("No more to display at the beginning"); }
+        }
+        if (input.contains("Q")) {
+            showList(places);
+            break;
+        }
+    }
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Gym Survey</title>
+  </head>
+  <body>
+    <h1 id="title">Win Gym Survey</h1>
+    <p id="description">We appreciate you for being a loyalty member of our gym</p>
+    <form id="survey-form">
+      <fieldset>
+        <label id="name-label" for="name">Name <input required placeholder="Full Name" type="text" id="name" name="name"</label>
+        <label id="email-label" for="email">Email <input required placeholder="Valid Email Format" type="email" id="email" name="email"></label>
+        <label id="number-label" for="number">Age <input type="number" id="number" name="number" required placeholder="18-35" min="18" max="35"></label>
+        <label for="dropdown">
+          How much you like our gym?
+        <select id="dropdown" name="dropdown">
+<option value="">Choose</option>
+            <option value="1">Less Likely</option>
+            <option value="2">Likely</option>
+            <option value="3">Most Likely</option>
+            <option value="4">Very Satisfied</option>
+        </select>
+        </label>
+        <legend>
+          Would you prefer to work out with calisthenics or gym equipments?
+        </legend>
+        <label for="calisthenics">
+        <input type="radio" name="group1" id="calisthenics" value="calisthenics"> Calisthenics
+        </label>
+        <br>
+        <label for="gym">
+        <input checked type="radio" name="group1" id="gym" value="gym"> Gym
+        </label>
+        <br>
+        <label for="home">
+        <input type="radio" name="group1" id="home" value="home"> Home
+        </label>
+        <p>What is your fitness goals?</p>
+        <label for="lean">
+          <input type="checkbox" value="lean"> More Lean
+        </label>
+        <br>
+        <label for="muslce">
+          <input type="checkbox" value="muscle"> Build Muslce
+        </label>
+        <br>
+        <label for="fat">
+          <input type="checkbox" value="fat"> Burn Fat
+        </label>
+        <p>Comments on how to improve my gym</p>
+        <textarea placeholder="Enter your idea" id="comments"></textarea>
+        <input id="submit" type="submit" value="Submit">
+      </fieldset>
+    </form>
+  </body>
+</html>}
+
+        }
+
